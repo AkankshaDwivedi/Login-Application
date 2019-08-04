@@ -1,6 +1,6 @@
 #Spring Login Application
 
-About
+##About
 ##Description : This is a demo project for login portal using Spring framework 5 and Spring Boot 2. The idea is to build some basic login platform for USER and ADMIN role. It is made using Spring Boot, Spring Security, Thymeleaf, Spring Data JPA. Database is in memory H2.
 
 ##Functionality Covered: There is a login and registration functionality included for users. And an additional functionality to view all the users and delete them if required to the admin. Every authenticated user can login the account and as per the access provided can view the admin page. Non-authenticated users can view the main login page, wherein they need to register to view the authenticated resources.
