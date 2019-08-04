@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{pagelayout :: head(title = 'Login')}">
+<body>
+	<nav th:replace="~{pagelayout :: nav}"></nav>
+    <div th:replace="~{pagelayout :: jumbotron}"></div>
+    <div th:replace="~{pagelayout :: message}"></div>
+    <div class="container">
+        <!-- login -->
+        <form role="form" method="POST" th:action="@{/login}">
+            <div class="row" align="center">
+            	<h2>Please Login</h2>
+                    <hr>
+                    <div class="alert alert-danger" th:if="${param.error != null}">
+                        Invalid username and password.
+                    </div>        
+                    <div class="alert alert-success" th:if="${param.logout != null}">
+                        You have been logged out.
+                    </div>    
+            </div>
+            <div class="row" align="center">
+            	<div class="form-group has-danger">
+                	<label class="sr-only" for="email">E-Mail Address</label>
+                    	<div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                            <input type="text" name="email" class="form-control" id="email" required autofocus>      
+                </div>
+            </div>
+            <div class="row" align="center">
+            	<div class="form-group">
+                	<label class="sr-only" for="password">Password</label>
+                    	<div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                            <input type="password" name="password" class="form-control" id="password" required autofocus>
+                </div>
+           	</div>
+            <div class="row" style="padding-top: 1rem" align="center">
+            	<button type="submit" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> Login</button>
+            </div>
+    	</form>
+    </div>
+</body>
+</html>

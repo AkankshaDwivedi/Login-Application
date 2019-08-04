@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="~{pagelayout :: head(title = 'Welcome Admin!')}">
+<body>
+	<nav th:replace="~{pagelayout :: nav}"></nav>
+	<h2 align="center">User Details</h2>
+	<table border="1" align="center">
+    <tr>
+    	<th>User ID</th>
+        <th>First name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr> 
+    <tr th:each = "users: ${user}">
+    	<td th:text="${users.id}"></td>
+        <td th:text="${users.firstName}"></td>
+        <td th:text="${users.lastName}"></td>
+        <td th:text="${users.email}"></td>
+        <form th:action="@{'/delete/' + ${users.id}}">
+        	<td><button onclick="return confirm('Do you want to continue deleting the user?')">Delete</button></td>
+		</form>
+    </tr>
+</table>
+</body>
+</html>
